@@ -1,0 +1,13 @@
+.btn-primary{
+  display: inline-block;
+  
+  font-family: 'Syne';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: auto;
+  color: var(--light);
+
+  border-radius: 999px;
+  padding: 12px 24px;
+  background: var(--gradient02);
+}

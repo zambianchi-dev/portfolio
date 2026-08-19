@@ -1,0 +1,69 @@
+.hero {
+  height: 742px;
+  overflow: hidden;
+  position: relative;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 100% );
+}
+
+.hero .container{
+  padding-bottom: 56px;
+}
+
+.coluns{
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0px;
+}
+
+.coluna{
+  flex: 1;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  position: relative;
+}
+
+.coluna::after{
+  content: "";
+  width: 1px;
+  height: 200px;
+  opacity: 1;
+
+  background: var(--gradient01);
+  position: absolute;
+  top: 0%;
+  right: -1px;
+
+  animation: moveDown 8s linear infinite;
+}
+
+.coluna:nth-child(2)::after{
+  animation-delay: 2s;
+}
+
+.coluna:nth-child(3)::after{
+  animation-delay: 4s;
+}
+
+.coluna:nth-child(4)::after{
+  animation-delay: 6s;
+}
+
+.coluna:nth-child(5)::after{
+  animation-delay: 8s;
+}
+
+.coluna:last-child, .coluna:last-child::after{
+  border: none;
+  width: 0px;
+}
+
+@keyframes moveDown{
+  to{
+    top: 100%;
+    opacity: 0;
+  }
+}

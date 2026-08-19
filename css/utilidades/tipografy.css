@@ -1,0 +1,40 @@
+
+h1, h2, h3, h4{
+  font-family: 'Syne';
+  line-height: auto;
+  color: var(--light);
+}
+
+p, a, li{
+  font-family: 'Inter';
+}
+
+h1{
+  
+  font-size: 84px;
+  font-weight: 400;
+  letter-spacing: -2%;
+}
+
+h1 span{
+  background-size: 300% auto;
+  background-image: var(--gradient01);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+
+  animation: gradient-move 10s linear infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 300% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

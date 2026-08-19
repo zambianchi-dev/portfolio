@@ -1,0 +1,28 @@
+:root{
+  /* CORES DE DESTAQUE */
+ --primary: #E04200;
+ --secundary: #FCA600;
+
+ /* TONS DE CINZA */
+ --dark: #000; 
+ --gray-50: #080808;
+ --gray-100: #1A1A1A;
+ --gray-200: #2A2A2A;
+ --gray-300: #3B3B3B;
+ --gray-400: #4D4D4D;
+ --gray-500: #5D5D5D;
+ --gray-600: #6E6E6E;
+ --gray-700: #808080;
+ --gray-800: #909090;
+ --gray-900: #A1A1A1;
+ --gray-1000: #B3B3B3;
+ --gray-1100: #C3C3C3;
+ --gray-1200: #D4D4D4;
+ --gray-1300: #E6E6E6;
+ --gray-1400: #F6F6F6;
+ --light: #fff; 
+
+ /* GRADIENTS */
+ --gradient01: linear-gradient(to right, #E25613 0%, #FCA600 40%, #FCD176 70%, #E25613 100%);
+ --gradient02: linear-gradient(to right, #E04200  0%, #FCA600 100%);
+}
