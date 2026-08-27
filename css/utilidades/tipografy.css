@@ -1,22 +1,30 @@
-
-h1, h2, h3, h4{
-  font-family: 'Syne';
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Syne";
   line-height: auto;
   color: var(--light);
 }
 
-p, a, li{
-  font-family: 'Inter';
+p,
+a,
+li,
+span {
+  font-family: "Inter";
 }
 
-h1{
-  
+.text-center{
+  text-align: center;
+}
+
+h1 {
   font-size: 84px;
   font-weight: 400;
   letter-spacing: -2%;
 }
 
-h1 span{
+h1 span {
   background-size: 300% auto;
   background-image: var(--gradient01);
   -webkit-background-clip: text;
@@ -25,6 +33,11 @@ h1 span{
   display: inline-block;
 
   animation: gradient-move 10s linear infinite;
+}
+
+.p1 {
+  font-size: 18px;
+  color: var(--gray-700);
 }
 
 @keyframes gradient-move {
@@ -36,5 +49,26 @@ h1 span{
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 64px;
+  }
+
+  .p1 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  .p1 {
+    font-size: 16px;
+    
   }
 }

@@ -1,13 +1,57 @@
+.btn{
+  font-family: 'Syne';
+  line-height: auto;
+
+  cursor: pointer;
+}
+
 .btn-primary{
   display: inline-block;
-  
-  font-family: 'Syne';
   font-size: 18px;
-  font-weight: 500;
-  line-height: auto;
+  font-weight: 600;
+  
   color: var(--light);
+  opacity: 0.9;
 
   border-radius: 999px;
   padding: 12px 24px;
   background: var(--gradient02);
+
+  transition: 0.3s ease;
 }
+
+.btn-primary:hover{
+  opacity: 1;
+}
+
+
+.btn-projetos{
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(90deg,
+      rgba(255,255,255,0.04) 0%,
+      var(--yellow-50) 60%,
+      var(--secundary) 100%)
+      ;
+    background-size: 200% auto;   /* depois do shorthand */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* Safari */
+    display: inline-block;
+
+    transition: 0.6s ease;
+    /* animation: move-bg-btn 4s linear infinite; */
+}
+
+.card-projetos:hover .btn-projetos{
+  background-position: 280% 300%;
+}
+
+/* @keyframes move-bg-btn {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} */
+
+
