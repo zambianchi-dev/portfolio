@@ -22,7 +22,7 @@ footer .consideracoes p {
 .logo-footer {
   display: flex;
   justify-content: center;
-  order: -1;
+  
 }
 
 .logo-footer img {
