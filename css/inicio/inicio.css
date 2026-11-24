@@ -377,7 +377,7 @@
     display: none;
   }
 
-  .coluna:nth-child(5) {
+  .coluna:nth-child(5)::after {
     display: none;
   }
 
