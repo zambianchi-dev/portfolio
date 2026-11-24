@@ -5,25 +5,81 @@
   cursor: pointer;
 }
 
+.sombra-animada{
+  padding: 8px;
+  border-radius: 24px;
+  position: relative;
+  
+  
+}
+
+.sombra-animada::after{
+  position: absolute;
+  top: 10px;
+  right: 4px;
+  content: "";
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background: var(--gradient01);
+  filter: blur(6px);
+  transition: 0.6s ease;
+  /* animation: move-bg-btn 4s infinite; */
+}
+
+/* @keyframes move-bg-btn {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} */
+
+.sombra-animada:hover::after{
+  top: 10px;
+  right: 83%;
+}
+
+.sombra-animada:hover .btn-primary{
+  color: var(--light);
+}
+
 .btn-primary{
   display: inline-block;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   
+  align-self: start;
   color: var(--light);
-  opacity: 0.9;
+  position: relative;
+  z-index: 2;
 
-  border-radius: 999px;
-  padding: 12px 24px;
-  background: var(--gradient02);
-
+  border-radius: 24px;
+  padding: 10px 24px;
+  background: var(--grey-50);
+  
   transition: 0.3s ease;
 }
 
-.btn-primary:hover{
-  opacity: 1;
+.btn-secundary{
+  font-size: 16px;
+  color: var(--grey-1000);
+  transition: 0.3s ease;
+
+  cursor: pointer;
 }
 
+.btn-secundary:hover{
+  color: var(--light);
+}
+
+.icon-social svg path{
+  stroke: var(--grey-1000);
+  transition: 0.3s ease;
+}
+
+.icon-social svg:hover path{
+  stroke: var(--light);
+}
 
 .btn-projetos{
     font-size: 20px;
@@ -48,10 +104,6 @@
   background-position: 280% 300%;
 }
 
-/* @keyframes move-bg-btn {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-} */
+
 
 

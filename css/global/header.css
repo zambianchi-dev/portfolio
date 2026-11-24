@@ -1,19 +1,25 @@
-header{
+header {
   width: 100%;
-  position: absolute;
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
-  z-index: 9999;
+
+  padding-top: 24px;
 }
 
-header .container{
-  padding-top: 32px;
-  padding-bottom: 32px;
-
+header .container {
+  display: flex;
+  max-width: 1200px;
+  padding: 16px 24px;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
+
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(50px);
+  
 }
 
-header img{
-  width: 216px;
+header img {
+  width: 147px;
   opacity: 0.7;
   transition: 0.3s ease;
   padding: 8px;
@@ -21,44 +27,213 @@ header img{
   /* animation: in-opacity 2s infinite alternate; */
 }
 
-header img:hover{
+header img:hover {
   opacity: 1;
 }
-/* @keyframes in-opacity{
-  to{
-    opacity: 1;
-  }
-} */
 
-.nav-list{
-  gap: 32px;
-}
-
-.nav-list .nav-list-item {
-  list-style: none;
-  color: var(--light);
-  cursor: pointer;
-
-  padding: 4px 0px;
-  
-  position: relative;
-}
-
-.nav-list .nav-list-item::after{
-  content: "";
-  width: 0%;
-  height: 1px;
-
-
+.overlay{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
-  left: 0%;
-  bottom: 0px;
-  background: var(--gradient01);
-  border-radius: 9px;
+  z-index: 8;
+  background: rgba(0, 0, 0, 0.3);
 
   transition: 0.3s ease;
 }
 
-.nav-list .nav-list-item:hover::after{
+.overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+#menu{
+  width: 0%;
+  height: 100vh;
+
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 9;
+  overflow: hidden;
+
+  /* Fechado: removido da árvore de acessibilidade e do fluxo de foco.
+     Sem isso os links continuariam focáveis dentro de um menu invisível. */
+  visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+
+  padding: 240px 0px 0px 48px;
+
+  background: var(--dark);
+  transition: 0.3s ease;
+}
+
+#menu.active .nav-list-item{
+  opacity: 0.3;
+} 
+
+#menu.active{
+  width: 50%;
+  visibility: visible;
+}
+
+.hamburguer{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--grey-1000);
+  padding-left: 24px;
+
+  transition: 0.3s ease;
+}
+
+[data-menu="btn-close"]{
+  display: none;
+  position: absolute;
+  top: 48px;
+  right: 48px;
+  z-index: 10;
+}
+
+[data-menu="btn-close"].active{
+  display: flex;
+}
+
+.hamburguer::after,
+.hamburguer::before{
+  display: inline-block;
+  content: "";
+  width: 12px;
+  height: 2px;
+
+  background: var(--grey-1000);
+  transition: 0.4s ease;
+  position: absolute;
+
+  transition: 0.3s ease;
+}
+
+[data-menu="btn"]::after{
+  position: absolute;
+  top: 5px;
+  left: 6px;
+}
+
+[data-menu="btn"]::before{
+  position: absolute;
+  top: 10px;
+  left: 6px;
+}
+
+[data-menu="btn-close"]::after{
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  rotate: -45deg;
+}
+
+[data-menu="btn-close"]::before{
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  rotate: 45deg;
+}
+
+.hamburguer:hover{
+  color: var(--light);
+}
+
+.hamburguer:hover::after,
+.hamburguer:hover::before{
+  background: var(--light);
+}
+
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 32px;
+}
+
+#menu .nav-list-item {
+  display: flex;
+  align-items: center;
+
+  list-style: none;
+  color: var(--light);
+  font-size: 56px;
+  cursor: pointer;
+  pointer-events: auto;
+  padding: 4px 0px;
+
+  position: relative;
+
+  transition:  0.3s ease;
+}
+#menu .nav-list-item:hover {
+  padding-left: 24px;
+ opacity: 1;
+ transform: scale(1.05);
+}
+
+/* O link ocupa todo o item: alvo de clique/toque maior (WCAG 2.5.8) */
+#menu .nav-list-item a {
+  display: block;
   width: 100%;
+  padding: 4px 0px;
+}
+
+.nav-list .nav-list-item::before {
+  display: inline-block;
+  content: "";
+  width: 0px;
+  height: 24px;
+
+  margin-right: 16px;
+  background: var(--gradient01);
+  border-radius: 50%;
+
+  transition: 0.3s ease;
+}
+
+.nav-list .nav-list-item:hover::before {
+  width: 24px;
+}
+
+
+@media (max-width: 768px){
+  #menu.active{
+    width: 100%;
+  }
+}
+
+.icones-sociais-menu{
+  margin: 104px 0px 0px 10px;
+}
+
+.icones-sociais-menu img{
+  width: 48px;
+  opacity: 0.5;
+
+  transition: 0.3s ease;
+}
+
+.icones-sociais-menu img:hover{
+ 
+  opacity: 1;
 }

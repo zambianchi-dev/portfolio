@@ -6,21 +6,21 @@
 
  /* TONS DE CINZA */
  --dark: #000; 
- --gray-50: #080808;
- --gray-100: #1A1A1A;
- --gray-200: #2A2A2A;
- --gray-300: #3B3B3B;
- --gray-400: #4D4D4D;
- --gray-500: #5D5D5D;
- --gray-600: #6E6E6E;
- --gray-700: #808080;
- --gray-800: #909090;
- --gray-900: #A1A1A1;
- --gray-1000: #B3B3B3;
- --gray-1100: #C3C3C3;
- --gray-1200: #D4D4D4;
- --gray-1300: #E6E6E6;
- --gray-1400: #F6F6F6;
+ --grey-50: #080808;
+ --grey-100: #1A1A1A;
+ --grey-200: #2A2A2A;
+ --grey-300: #3B3B3B;
+ --grey-400: #4D4D4D;
+ --grey-500: #5D5D5D;
+ --grey-600: #6E6E6E;
+ --grey-700: #808080;
+ --grey-800: #909090;
+ --grey-900: #A1A1A1;
+ --grey-1000: #B3B3B3;
+ --grey-1100: #C3C3C3;
+ --grey-1200: #D4D4D4;
+ --grey-1300: #E6E6E6;
+ --grey-1400: #F6F6F6;
  --light: #fff; 
 
  /* GRADIENTS */

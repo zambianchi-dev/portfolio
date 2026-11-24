@@ -7,9 +7,93 @@
 
 body {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   background: #000;
+  position: relative;
+}
+
+
+/* ===== ACESSIBILIDADE ===== */
+
+/* Texto só para leitores de tela (WCAG 1.1.1 / 1.4.1) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link — WCAG 2.4.1 */
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 999;
+
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: var(--light);
+  color: var(--dark);
+  font-weight: 700;
+
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Foco visível em tudo que é focável — WCAG 2.4.7 */
+:focus-visible {
+  outline: 3px solid var(--secundary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Fallback para navegadores sem :focus-visible */
+@supports not selector(:focus-visible) {
+  :focus {
+    outline: 3px solid var(--secundary);
+    outline-offset: 3px;
+  }
+}
+
+/* Itens sem destino: não são focáveis e ficam visualmente atenuados */
+[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* O alvo de uma âncora recebe destaque ao receber foco programático */
+:target {
+  scroll-margin-top: 120px;
+}
+
+/* Respeita quem pediu menos movimento — WCAG 2.3.3 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Modo de alto contraste do Windows */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid CanvasText;
+  }
 }
 
 
@@ -34,7 +118,9 @@ a {
   color: inherit;
 }
 
-
+img{
+  width: 100%;
+}
 
 :root{
   --container: 342px;
@@ -84,4 +170,11 @@ a {
 
 .border{
   border: 1px solid red;
+}
+
+.gap-16{
+  gap: 16px;
+}
+.gap-24{
+  gap: 24px;
 }
