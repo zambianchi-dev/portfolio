@@ -366,8 +366,18 @@
 }
 
 @media (max-width: 768px) {
+  .coluna::after {
+    content: "";
+    width: 1px;
+    height: 156px;
+  }
+
   .coluna:last-child,
   .coluna:last-child::after {
+    display: none;
+  }
+
+  .coluna:nth-child(5) {
     display: none;
   }
 
@@ -394,11 +404,11 @@
     width: 100%;
   }
 
-  .card-projetos{
+  .card-projetos {
     height: 300px;
   }
 
-  .card-projetos .banner{
+  .card-projetos .banner {
     height: 300px;
     object-fit: cover;
   }
