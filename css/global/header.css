@@ -15,7 +15,6 @@ header .container {
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(50px);
-  
 }
 
 header img {
@@ -31,7 +30,7 @@ header img:hover {
   opacity: 1;
 }
 
-.overlay{
+.overlay {
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -43,12 +42,14 @@ header img:hover {
   transition: 0.3s ease;
 }
 
-.overlay.active{
+.overlay.active {
   opacity: 1;
   pointer-events: all;
+  /* Também faz o iOS Safari gerar o "click" ao tocar fora do menu */
+  cursor: pointer;
 }
 
-#menu{
+#menu {
   width: 0%;
   height: 100vh;
 
@@ -73,16 +74,16 @@ header img:hover {
   transition: 0.3s ease;
 }
 
-#menu.active .nav-list-item{
+#menu.active .nav-list-item {
   opacity: 0.3;
-} 
+}
 
-#menu.active{
+#menu.active {
   width: 50%;
   visibility: visible;
 }
 
-.hamburguer{
+.hamburguer {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -101,20 +102,23 @@ header img:hover {
   transition: 0.3s ease;
 }
 
-[data-menu="btn-close"]{
+[data-menu="btn-close"] {
+
   display: none;
   position: absolute;
-  top: 48px;
-  right: 48px;
-  z-index: 10;
+  
+  top: 56px;
+  right: 40px;
+  z-index: 11;
 }
 
-[data-menu="btn-close"].active{
+[data-menu="btn-close"].active {
   display: flex;
+  align-items: center;
 }
 
 .hamburguer::after,
-.hamburguer::before{
+.hamburguer::before {
   display: inline-block;
   content: "";
   width: 12px;
@@ -127,46 +131,45 @@ header img:hover {
   transition: 0.3s ease;
 }
 
-[data-menu="btn"]::after{
+[data-menu="btn"]::after {
   position: absolute;
   top: 5px;
   left: 6px;
 }
 
-[data-menu="btn"]::before{
+[data-menu="btn"]::before {
   position: absolute;
   top: 10px;
   left: 6px;
 }
 
-[data-menu="btn-close"]::after{
+[data-menu="btn-close"]::after {
   position: absolute;
   top: 8px;
   left: 6px;
   rotate: -45deg;
 }
 
-[data-menu="btn-close"]::before{
+[data-menu="btn-close"]::before {
   position: absolute;
   top: 8px;
   left: 6px;
   rotate: 45deg;
 }
 
-.hamburguer:hover{
+.hamburguer:hover {
   color: var(--light);
 }
 
 .hamburguer:hover::after,
-.hamburguer:hover::before{
+.hamburguer:hover::before {
   background: var(--light);
 }
-
 
 .nav-list {
   display: flex;
   flex-direction: column;
-  
+
   gap: 32px;
 }
 
@@ -183,12 +186,12 @@ header img:hover {
 
   position: relative;
 
-  transition:  0.3s ease;
+  transition: 0.3s ease;
 }
 #menu .nav-list-item:hover {
   padding-left: 24px;
- opacity: 1;
- transform: scale(1.05);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 /* O link ocupa todo o item: alvo de clique/toque maior (WCAG 2.5.8) */
@@ -215,25 +218,44 @@ header img:hover {
   width: 24px;
 }
 
+@media (max-width: 768px) {
+  #menu{
+    padding: 200px 0px 0px 24px;
+  }
 
-@media (max-width: 768px){
-  #menu.active{
+  #menu.active {
     width: 100%;
+    overscroll-behavior: contain;
+  }
+
+  #menu .nav-list-item {
+    display: flex;
+    align-items: center;
+
+    list-style: none;
+    color: var(--light);
+    font-size: 40px;
+    cursor: pointer;
+    pointer-events: auto;
+    padding: 4px 0px;
+
+    position: relative;
+
+    transition: 0.3s ease;
   }
 }
 
-.icones-sociais-menu{
+.icones-sociais-menu {
   margin: 104px 0px 0px 10px;
 }
 
-.icones-sociais-menu img{
+.icones-sociais-menu img {
   width: 48px;
   opacity: 0.5;
 
   transition: 0.3s ease;
 }
 
-.icones-sociais-menu img:hover{
- 
+.icones-sociais-menu img:hover {
   opacity: 1;
 }

@@ -1,6 +1,8 @@
 import outsideClick from "./outsideclick.js";
 
-const EVENTOS = ["click", "touchstart"];
+// Só "click": com "touchstart" o menu fechava antes do toque terminar e o
+// clique caía no botão "Menu" que está embaixo do "Fechar", reabrindo tudo.
+const EVENTOS = ["click"];
 
 export default function initMenuMobile() {
   const btnMenu = document.querySelector('[data-menu="btn"]');
@@ -51,7 +53,9 @@ export default function initMenuMobile() {
 
   navLinks.forEach((link) => {
     // Ao navegar para a âncora, fecha o menu sem roubar o foco do destino
-    link.addEventListener("click", () => closeMenuMobile({ devolverFoco: false }));
+    link.addEventListener("click", () =>
+      closeMenuMobile({ devolverFoco: false }),
+    );
   });
 
   // Esc fecha o menu — padrão esperado de qualquer diálogo/menu sobreposto
@@ -65,7 +69,10 @@ export default function initMenuMobile() {
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Tab" || !navMenu.classList.contains("active")) return;
 
-    const focaveis = [btnMenuClose, ...navMenu.querySelectorAll("a[href], button")];
+    const focaveis = [
+      btnMenuClose,
+      ...navMenu.querySelectorAll("a[href], button"),
+    ];
     const primeiro = focaveis[0];
     const ultimo = focaveis[focaveis.length - 1];
 
